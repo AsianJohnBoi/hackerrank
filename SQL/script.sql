@@ -29,3 +29,6 @@ FROM station;
 SELECT DISTINCT CITY
 FROM STATION
 WHERE MOD(ID, 2) = 0;
+
+-- Weather Observation Station 3
+SELECT COUNT(*) - COUNT(DISTINCT city) FROM station;
