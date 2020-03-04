@@ -1,4 +1,4 @@
--- Select All
+-- SELECT All
 SELECT * FROM city;
 
 -- Japanese Cities' Names
@@ -11,12 +11,12 @@ SELECT *
 FROM city 
 WHERE countrycode='JPN';
 
--- Revising the Select Query I
+-- Revising the SELECT Query I
 SELECT * 
 FROM CITY 
 WHERE countrycode='USA' AND population > 100000;
 
--- Revising the Select Query II
+-- Revising the SELECT Query II
 SELECT name 
 FROM city 
 WHERE countrycode='USA' AND population > 120000;
@@ -41,4 +41,22 @@ WHERE city LIKE 'A%' OR city LIKE 'E%' OR city LIKE 'I%' OR city LIKE 'O%'OR cit
 -- Weather Observation Station 7
 SELECT unique city FROM station 
 WHERE city LIKE '%a' OR city LIKE '%e' OR city LIKE '%i' OR city LIKE '%o'OR city LIKE '%u';
+
+-- Weather Observation Station 8
+SELECT DISTINCT city FROM station 
+WHERE lower(substr(city, 1, 1)) IN ('a', 'e', 'i', 'o', 'u')
+AND lower(substr(city, -1, 1)) IN ('a', 'e', 'i', 'o', 'u');
+
+-- Weather Observation Station 9
+SELECT DISTINCT city FROM station 
+WHERE LOWER(SUBSTR(city,0,1)) NOT IN ('a','e','i','o','u');
+
+-- Weather Observation Station 10
+SELECT DISTINCT city FROM station 
+WHERE LOWER(SUBSTR(city,-1,1)) NOT IN ('a','e','i','o','u');
+
+-- Weather Observation Station 11
+SELECT DISTINCT city FROM station 
+WHERE SUBSTR(city,1,1) NOT IN ('A','E','I','O','U') or SUBSTR(CITY,-1,1) NOT IN ('a','e','i','o','u') order by city;
+
 
