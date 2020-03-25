@@ -34,6 +34,13 @@ WHERE MOD(ID, 2) = 0;
 SELECT COUNT(*) - COUNT(DISTINCT city) 
 FROM station;
 
+-- Weather Observation Station 5
+SELECT city,LENGTH(city) FROM (SELECT city,rownum AS rid 
+                               FROM (SELECT city, LENGTH(city) FROM station 
+                                     ORDER BY LENGTH(city),city)) 
+                                     WHERE rid = 1 OR rid = 
+                                     (SELECT MAX(rownum) FROM station);
+
 -- Weather Observation Station 6
 SELECT unique city FROM station 
 WHERE city LIKE 'A%' OR city LIKE 'E%' OR city LIKE 'I%' OR city LIKE 'O%'OR city LIKE 'U%';
