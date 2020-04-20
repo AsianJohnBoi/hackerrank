@@ -66,4 +66,8 @@ WHERE LOWER(SUBSTR(city,-1,1)) NOT IN ('a','e','i','o','u');
 SELECT DISTINCT city FROM station 
 WHERE SUBSTR(city,1,1) NOT IN ('A','E','I','O','U') or SUBSTR(CITY,-1,1) NOT IN ('a','e','i','o','u') order by city;
 
-
+-- Weather Observation Station 12
+SELECT DISTINCT city
+FROM station
+WHERE NOT(SUBSTR(city,1,1)) IN('A', 'E', 'I', 'O', 'U') 
+AND NOT(SUBSTR(city,LENGTH(trim(city)),1)) IN ('a', 'e', 'i', 'o', 'u');
